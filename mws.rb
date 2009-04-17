@@ -14,17 +14,37 @@ doc/api
 doc/app
 EnD
 
+file "lib/tasks/vlad.rake", <<EnD
+begin
+  require 'vlad'
+  Vlad.load
+rescue LoadError
+  # do nothing
+end
+EnD
+
+file "config/deploy.rb", <<EnD
+set :application, "app"
+set :domain, "example.com"
+set :deploy_to, "/var/www/apps"
+set :web, "passenger"
+set :scm, "git"
+set :repository, ""
+EnD
+
 gem "sqlite3-ruby", :lib => "sqlite3", :version => ">=1.2.3"
+gem "vlad", :lib => false, :version => ">=1.3.2"
 
 with_options :env => "test" do |test|
 	test.gem "rspec", :lib => false, :version => ">=1.2.2"
 	test.gem "rspec-rails", :lib => false, :version => ">=1.2.2"
 	test.gem "webrat", :lib => false, :version => ">=0.4.3"
-	test.gem "cucumber", :lib => false, :version => ">=0.2.2"
+	test.gem "cucumber", :lib => false, :version => ">=0.3.0"
 end
 
 rake('gems:install')
 rake('gems:install', :env => "test")
+
 
 git :init
 
@@ -38,6 +58,6 @@ end
 
 git :submodule => "init"
 git :add => "."
-git :commit => "-a -m 'Initial commit'"
+git :commit => '-m "Initial commit"'
 
 puts "MWS template fihished successfully."
