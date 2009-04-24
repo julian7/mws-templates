@@ -43,8 +43,11 @@ with_options :env => "test" do |test|
   test.gem 'thoughtbot-factory_girl', :lib => 'factory_girl', :source => "http://gems.github.com", :version => '>=1.2.1'
 end
 
-rake('gems:install')
-rake('gems:install', :env => "test")
+with_options :sudo => ask("Sudo?") do |r|
+  r.rake('gems:install')
+  r.rake('gems:install', :env => "test")
+end
+
 generate('cucumber')
 
 git :init
