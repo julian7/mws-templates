@@ -63,6 +63,8 @@ with_options :submodule => true do |sub|
   sub.plugin 'role_requirement', :git => 'git://github.com/timcharper/role_requirement.git'
 end
 
+generate('formtastic_stylesheets')
+
 git :submodule => "init"
 git :add => "."
 git :commit => '-m "Initial commit"'
