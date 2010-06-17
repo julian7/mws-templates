@@ -113,8 +113,6 @@ else
 end
 EnD
 
-# generate 'formtastic_stylesheets'
-
 # Controllers
 ## ApplicationController
 inject_into_file 'app/controllers/application_controller.rb', :before => '\nend' do
@@ -148,6 +146,8 @@ inject_into_file 'app/controllers/application_controller.rb', :before => '\nend'
   EnD
 end
 # Views
+## Formtastic
+generate 'formtastic:install'
 ## Layout
 remove_file 'app/views/layouts/application.html.erb'
 create_file 'app/views/layouts/application.html.haml', <<-EnD
@@ -155,8 +155,8 @@ create_file 'app/views/layouts/application.html.haml', <<-EnD
 %html
   %head
     %title #{app_name.humanize}
-    = stylesheet_link_tag :all
-    = javascript_include_tag :defaults
+    = stylesheet_link_tag :all, :cache => true
+    = javascript_include_tag :defaults, :cache => true
     = csrf_meta_tag
   %body
     = yield

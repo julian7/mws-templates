@@ -8,6 +8,8 @@
 
 * Version control: [git](http://git-scm.com/)
 * Ruby engine: [RVM](http://rvm.beginrescueend.com/)
+* Template engine: [Haml](http://haml-lang.com/), [Sass](http://sass-lang.com/)
+* Form generator: [Formtastic](http://github.com/justinfrench/formtastic)
 * Javascript: [jQuery](http://www.jquery.com/), [Unobtrusive Javascript for jquery](http://github.com/rails/jquery-ujs/)
 * Application server: [Unicorn](http://unicorn.bogomips.org/)
 * Deployment: [inploy](http://github.com/dcrec1/inploy)
