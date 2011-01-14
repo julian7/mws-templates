@@ -1,0 +1,61 @@
+/* 978 grid system. See: http://978.gs/
+ * SASS3 version by Balazs Nagy (https://github.com/julian7)
+ */
+
+$gutter-width: 30px !default;
+$grid-width: 978px !default;
+$columns: 12 !default;
+
+@mixin container {
+  margin-left: auto;
+  margin-right: auto;
+  width: $grid-width;
+}
+
+@mixin first {
+  margin-left: 0;
+  clear: left;
+}
+
+@mixin grid($cols, $max: $columns) {
+  @include grid_common;
+  @include grid_width($cols, $max);
+}
+
+@mixin grid_common {
+  float: left;
+  margin-left: $gutter-width;
+}
+
+@mixin grid_width($cols, $max: $columns) {
+  width: ($grid-width - $gutter-width * ($max - 1)) * $cols / $max + $gutter-width * ($cols - 1);
+}
+
+.container {
+  @include container;
+}
+
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10,
+.grid_11,
+.grid_12 {
+  @include grid_common;
+}
+
+@for $i from 1 through $columns {
+  .grid_#{$i} {
+    @include grid_width($i, $columns);
+  }
+}
+
+.first {
+  @include first;
+}

@@ -1,0 +1,10 @@
+Description:
+  mws:layout generator creates a basic layout, stylesheet and helper.
+  The default template contains 978 Grid System's SASS version,
+  which allows you to include 978gs mixins in your stylesheets directly:
+
+      .someclass {
+        @include grid(12);
+        @include first;
+        ...
+      }
