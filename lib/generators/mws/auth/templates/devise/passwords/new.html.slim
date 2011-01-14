@@ -1,0 +1,8 @@
+- title "Forgot your password?"
+
+= semantic_form_for resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post } do |f|
+  = f.inputs do
+    li= devise_error_messages!
+    = f.input :email
+  = f.buttons do
+    = f.commit_button "Change my password"

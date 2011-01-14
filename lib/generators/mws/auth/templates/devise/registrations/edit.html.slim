@@ -1,0 +1,17 @@
+- title "Edit #{resource_name.to_s.humanize}"
+
+= semantic_form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put } do |f|
+  = f.inputs do
+    li = devise_error_messages!
+    = f.input :email
+    = f.input :password, :hint => "leave blank if you don't want to change it"
+    = f.input :password_confirmation
+    = f.input :current_password, :hint => "we need your current password to confirm your changes"
+  = f.buttons do
+    = f.commit_button "Update"
+
+h3 Cancel account
+
+p Unhappy? #{link_to "Cancel account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete}.
+
+= link_to "Back", :back

@@ -14,6 +14,10 @@ module Mws
       def cancan_files
         copy_file 'ability.rb', 'app/model/ability.rb'
       end
+
+      def devise_templates
+        directory 'devise', 'app/views/devise'
+      end
     end
   end
 end
