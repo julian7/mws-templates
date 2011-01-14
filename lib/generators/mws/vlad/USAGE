@@ -1,0 +1,9 @@
+Description:
+  mws:vlad generator creates required files for Vlad deployments. Features:
+   - environment-specific configs (eg. rake vlad:deploy env=<environment>)
+   - app_server management with god
+   - rock solid rvmrc management in deploy target servers
+   - cleans up cached javascripts and stylesheets on deploy
+   - runs deploy:after_update task at deploy target servers
+   - generates deploy rake tasks (which invokes configuration generator)
+   - generates configuration generators (which creates config/unicorn.god)

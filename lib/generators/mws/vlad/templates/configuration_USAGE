@@ -1,0 +1,7 @@
+Description:
+  You can generate app-specific configurations.
+
+  This generates config/unicorn.god
+
+Example:
+    rails g[enerate] configuration <target RAILS_ENV>

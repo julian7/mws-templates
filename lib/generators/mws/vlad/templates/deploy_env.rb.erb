@@ -1,0 +1,4 @@
+set :rails_env, "<%= options.env %>"
+set :application, "<%= self.class.app_name.underscore %>-#{rails_env}"
+set :deploy_to, "/home/#{username}/apps/#{application}"
+set :god_cmd, "god -p #{application}"
