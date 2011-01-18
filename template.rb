@@ -36,7 +36,7 @@ gem 'slim', :require => 'slim/rails'
 gem 'sass', '~> 3.1.0.alpha.206'
 gem 'jquery-rails'
 gem 'devise'
-gem 'cancan'
+gem 'cancan', '~> 1.5.0'
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'mysql2'
 gem 'formtastic', '~> 1.2.0'
@@ -61,7 +61,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'email_spec'
   # Unit test
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.4'
   gem 'webrat'
   gem 'shoulda'
   gem 'factory_girl_rails'
@@ -78,6 +78,7 @@ generate 'mws:layout'
 
 # Authentication
 generate 'devise:install'
+generate 'cancan:ability'
 generate 'mws:auth'
 
 # Deployment
