@@ -1,9 +1,12 @@
+rails_env  = "<%= Rails.env %>"
+rails_root = "<%= Rails.root %>"
+
 God.watch do |w|
-  pidfile = '<%= Rails.root %>/tmp/pids/unicorn.pid'
-  w.name = 'unicorn'
-  w.group = '<%= Rails.application.class.parent.to_s %>'
+  pidfile = "#{rails_root}/tmp/pids/unicorn.pid"
+  w.name = 'worker-0'
+  w.group = 'unicorn'
   w.interval = 30.seconds
-  w.start = "cd <%= Rails.root %> && unicorn_rails -c config/unicorn.rb -E <%= target_env %> -D"
+  w.start = "cd #{rails_root} && unicorn_rails -c config/unicorn.rb -E #{rails_env} -D"
   w.stop = "kill -QUIT `cat #{pidfile}`"
   w.restart = "kill -USR2 `cat #{pidfile}`"
   w.start_grace = 30.seconds
