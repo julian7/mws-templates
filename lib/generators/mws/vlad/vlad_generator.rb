@@ -8,7 +8,6 @@ module Mws
 
       def default_tasks
         copy_file 'vlad.rake', 'lib/tasks/vlad.rake'
-        copy_file 'god.rb', 'lib/vlad/god.rb'
       end
 
       def create_configs
@@ -26,7 +25,8 @@ module Mws
       def configuration_generator
         copy_file 'configuration_generator.rb', 'lib/generators/configuration/configuration_generator.rb'
         copy_file 'configuration_USAGE', 'lib/generators/configuration/USAGE'
-        copy_file 'configuration_unicorn.god.erb', 'lib/generators/configuration/templates/unicorn.god.erb'
+        copy_file 'configuration_unicorn.god', 'lib/generators/configuration/templates/unicorn.god'
+        copy_file 'configuration_resque.god', 'lib/generators/configuration/templates/resque.god'
       end
     end
   end

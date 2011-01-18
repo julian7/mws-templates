@@ -1,6 +1,6 @@
 begin
   require 'vlad'
-  # Vlad.load :app => :god,
+  # Vlad.load :app => :nil,
   Vlad.load :app => :passenger,
     :scm => :git, :web => nil
 rescue
@@ -21,16 +21,11 @@ namespace :vlad do
   end
 
   remote_task :before_start_app, :role => :app do
-    begin
-      File.unlink %(public/javascripts/main.js public/stylesheets/main.css)
-    rescue
-      # skip
-    end
     run [
       "cd #{current_path}",
       "export RAILS_ENV=\"#{rails_env}\"",
       "rake deploy:after_update",
-      "(bundler exec newrelic deployments || true)"
+      "rake deploy:start_app"
     ].join(" && ")
   end
 end

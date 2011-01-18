@@ -1,7 +1,8 @@
 Description:
-  You can generate app-specific configurations.
-
-  This generates config/unicorn.god
+  You can generate app- and environment-specific configurations.
+  This generates god configuration files for the following:
+    - unicorn
+    - resque
 
 Example:
-    rails g[enerate] configuration <target RAILS_ENV>
+    rails g[enerate] configuration

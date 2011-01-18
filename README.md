@@ -4,7 +4,7 @@
 
     rvm use 1.9.2@<app name> --create
     gem install --no-ri --no-rdoc rails bundler
-    rails new <app name> -J -T -m http://github.com/julian7/mws-templates/raw/master/mws.rb
+    rails new <app name> -J -T -m http://github.com/julian7/mws-templates/raw/master/template.rb
 
 ## Resources used
 

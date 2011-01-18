@@ -4,4 +4,3 @@ set :application, "<%= self.class.app_name.underscore %>"
 set :username, "DEVUSER" # app username
 set :domain, "#{username}@DEVELOPMENT_APPSERVER"
 set :deploy_to, "/home/#{username}/apps/#{application}"
-set :god_cmd, "god -p #{application}"
