@@ -1,10 +1,19 @@
 # Rails3 template used by Magic Workshop Ltd.
 
+## Preparation
+    mkdir rails-nursery && cd rails-nursery
+    rbenv install 1.9.3-p125
+    rbenv local 1.9.3-p125
+    gem install bundler --pre
+    bundle init
+    echo 'gem "rails", "3.2.1" # or whatever' >> Gemfile
+    bundle --path=vendor --binstubs
+
 ## Usage
 
-    rvm use 1.9.2@<app name> --create
-    gem install --no-ri --no-rdoc rails bundler
-    rails new <app name> -J -T -m http://github.com/julian7/mws-templates/raw/master/template.rb
+    /path/to/rails-nursery/bin/rails new <app name> -T -skip-bundle -m http://github.com/julian7/mws-templates/raw/master/template.rb
+    cd <app name>
+    rbenv local 1.9.3-p125
 
 ## rwm-template generators
 
